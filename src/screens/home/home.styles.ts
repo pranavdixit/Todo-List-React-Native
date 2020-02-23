@@ -1,11 +1,15 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, PixelRatio} from 'react-native';
 
 export const homeStyles = StyleSheet.create({
   homeList: {
-    flex: 1,
+    height: '100%',
   },
   container: {
     display: 'flex',
     flex: 1,
+  },
+  addButton: {
+    height: PixelRatio.get() * 30,
+    alignContent: 'center',
   },
 });

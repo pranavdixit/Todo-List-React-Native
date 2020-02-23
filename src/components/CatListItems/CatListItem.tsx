@@ -19,7 +19,10 @@ export const CatListItem = (props: ICatListItems) => {
       </Text>
       <View style={catListItemStyle.horizontalContainer}>
         {onPressEdit && (
-          <Button icon="create" mode="outlined" onPress={() => onPressEdit()}>
+          <Button
+            icon="pencil-outline"
+            mode="outlined"
+            onPress={() => onPressEdit()}>
             Edit
           </Button>
         )}

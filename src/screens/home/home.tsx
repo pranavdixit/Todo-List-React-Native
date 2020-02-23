@@ -6,24 +6,40 @@ import CatListItem from '../../components/CatListItems';
 import {connect} from 'react-redux';
 import IStore from '../../store/IStore';
 import {removeCat} from '../../store/actions/catsAction';
+import {Button} from 'react-native-paper';
 
 const home = (props: iHomeProps) => {
-  const {cats} = props;
+  const {cats, navigation, removeCat} = props;
   return (
     <SafeAreaView style={homeStyles.container}>
+      <Button
+        contentStyle={homeStyles.addButton}
+        icon="plus"
+        mode="contained"
+        onPress={() => {
+          navigation.navigate('detail', {edit: false});
+        }}>
+        Add new Cat
+      </Button>
       <FlatList
         style={homeStyles.homeList}
         data={cats}
         renderItem={({item}): any => (
           <CatListItem
-            name="BOB"
-            breed="cat"
-            description="My fav cat"
+            name={item.name}
+            breed={item.breed}
+            description={item.description}
             onPressEdit={() => {
-              console.log('I am Pressed onPressEdit');
+              navigation.navigate('detail', {
+                edit: true,
+                name: item.name,
+                breed: item.breed,
+                description: item.description,
+                id: item.id,
+              });
             }}
             onPressRemove={() => {
-              console.log('I am Pressed onPressRemove');
+              item.id && removeCat(item.id);
             }}
           />
         )}

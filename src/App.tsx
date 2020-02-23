@@ -7,6 +7,7 @@ import home from './screens/home';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {Provider} from 'react-redux';
 import store from './store';
+import CatDetail from './screens/details';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,7 @@ function App() {
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen name="Home" component={home} />
+            <Stack.Screen name="detail" component={CatDetail} />
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>
