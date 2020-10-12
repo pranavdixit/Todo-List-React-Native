@@ -5,8 +5,8 @@ import {iHomeProps} from './iHome';
 import CatListItem from '../../components/CatListItems';
 import {connect} from 'react-redux';
 import IStore from '../../store/IStore';
-import {removeCat} from '../../store/actions/catsAction';
 import {Button} from 'react-native-paper';
+import {removeCat} from '../../store/actions/catsAction';
 
 const home = (props: iHomeProps) => {
   const {cats, navigation, removeCat} = props;
